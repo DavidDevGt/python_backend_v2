@@ -1,10 +1,6 @@
-from flask import Flask, request, jsonify
-from flask_sqlalchemy import SQLAlchemy
+from app import create_app
 
-app = Flask(__name__)
+app = create_app()
 
-# Configure the database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/notes_app'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
-
+if __name__ == '__main__':
+    app.run(debug=True)
