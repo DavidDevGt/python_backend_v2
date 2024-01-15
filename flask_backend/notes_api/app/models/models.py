@@ -1,6 +1,5 @@
 from . import db
 
-# Create the classes
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
@@ -14,6 +13,7 @@ class User(db.Model):
             'id': self.id,
             'username': self.username,
             'email': self.email,
+            # No incluir la contraseña por motivos de seguridad
             'notes': [note.to_dict() for note in self.notes]
         }
     
