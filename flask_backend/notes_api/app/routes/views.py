@@ -12,13 +12,13 @@ def get_users():
 
 @views.route('/notes', methods=['GET'])
 def get_notes():
-    notes = Notes.query.all
+    notes = Notes.query.all()
     return jsonify({'notes': [note.to_dict() for note in notes]})
 
 @views.route('/user/<int:user_id>', methods=['GET'])
 def get_user(user_id):
     user = User.query.get_or_404(user_id)
-    return jsonify(user_to_dict())
+    return jsonify(user.to_dict())
 
 @views.route('/note/<int:note_id>', methods=['GET'])
 def get_note(note_id):
